@@ -19,7 +19,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.x'  # Setze die gewünschte Python-Version
+        python-version: '3.12.8'
 
     - name: Install dependencies
       run: |
@@ -28,8 +28,7 @@ jobs:
 
     - name: Build EXE Directory
       run: |
-        pyinstaller --onedir your_script.py
-
+        pyinstaller --noconfirm --onedir --windowed --icon ".\icons\icon.ico" --name "Hello Word App"  "main.py"
     - name: Upload artifact
       uses: actions/upload-artifact@v3
       with:
