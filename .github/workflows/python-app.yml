@@ -19,7 +19,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.12.8'
+        python-version: '3.x'
 
     - name: Install dependencies
       run: |
@@ -29,8 +29,9 @@ jobs:
     - name: Build EXE Directory
       run: |
         pyinstaller --noconfirm --onedir --windowed --icon ".\icons\icon.ico" --name "Hello Word App"  "main.py"
+        dir dist
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
         name: your_executable_directory
-        path: dist/your_script/*
+        path: dist/main/*
