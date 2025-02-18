@@ -30,8 +30,22 @@ jobs:
       run: |
         pyinstaller --noconfirm --onedir --windowed --icon ".\icons\icon.ico" --name "Hello_World_App"  "main.py"
         cp -R icons dist/Hello_World_App/
-    - name: Upload artifact
+
+    - name: Install Inno Setup
+      run: choco install innosetup --yes
+
+    - name: Build Installer
+      run: |
+        "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" installer.iss
+
+    - name: Upload Installer
       uses: actions/upload-artifact@v4
       with:
-        name: hello_world_app
-        path: dist/Hello_World_App/*
+        name: Python_Installer
+        path: Hello_World_App-Setup.exe
+        
+    #- name: Upload artifact
+    #  uses: actions/upload-artifact@v4
+    #  with:
+    #    name: hello_world_app
+    #    path: dist/Hello_World_App/*
