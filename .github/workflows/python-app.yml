@@ -28,10 +28,10 @@ jobs:
 
     - name: Build EXE Directory
       run: |
-        pyinstaller --noconfirm --onedir --windowed --icon ".\icons\icon.ico" --name "Hello World App"  "main.py"
-        cp -R icons dist/
+        pyinstaller --noconfirm --onedir --windowed --icon ".\icons\icon.ico" --name "Hello_World_App"  "main.py"
+        cp -R icons dist/Hello_World_App/
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
         name: hello_world_app
-        path: dist/Hello World App/*
+        path: dist/Hello_World_App/*
