@@ -59,7 +59,7 @@ jobs:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: Hello_World_App-Setup.exe
         asset_name: Hello_World_App-Setup.exe
-        asset_content_type: applica
+        asset_content_type: application/octet-stream
 
     #- name: Upload Installer
     #  uses: actions/upload-artifact@v4
