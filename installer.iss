@@ -31,10 +31,8 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "dist\Hello World App\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "dist\Hello World App\*";; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-recursesubdirs createallsubdirs
-; NOTE: Don't use "Flags: ignoreversion" on any shared system files
+Source: "dist\Hello_World_App\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "dist\Hello_World_App\*";; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Icons]
 Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
