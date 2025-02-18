@@ -1,15 +1,37 @@
-jobs:
+name: Build EXE Directory
 
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
   build:
     runs-on: windows-latest
 
     steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
-      # Check-out repository
-      - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'  # Setze die gewünschte Python-Version
 
-      # Setup Python
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.x' # Version range or exact version of a Python version to use, using SemVer's version range syntax
-          architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specifie
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pyinstaller
+
+    - name: Build EXE Directory
+      run: |
+        pyinstaller --onedir your_script.py
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: your_executable_directory
+        path: dist/your_script/*
