@@ -34,4 +34,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: your_executable_directory
-        path: dist/main/*
+        path: hello_python_win_exe/dist/*
