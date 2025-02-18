@@ -30,7 +30,7 @@ jobs:
       run: |
         pyinstaller --noconfirm --onedir --windowed --icon ".\icons\icon.ico" --name "Hello Word App"  "main.py"
     - name: Upload artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: your_executable_directory
         path: dist/your_script/*
